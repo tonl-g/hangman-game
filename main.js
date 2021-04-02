@@ -24,10 +24,12 @@ const wordsDic = readDic.toLowerCase().split('\n')
 
 // Random array
 const randWord = randomInt(0, wordsDic.length)
-console.log(wordsDic[randWord]) // Test word
+// console.log(wordsDic[randWord]) // Test word
 
 // Boucle
 let isRunning = true
+const output = Array((wordsDic[randWord]).length).fill('_')
+console.log(output.join(' '))
 
 while (isRunning) {
   const findWord = readlineSync.question(chalk.blue('Guess the word: '))
@@ -35,8 +37,8 @@ while (isRunning) {
   // const counter = 0 / A faire
 
   if (findWord != (wordsDic[randWord])) {
-    console.log(chalk.red(`It's not the good word!`))
     console.log(chalk.green(`Good: ${matchLetters}`))
+    console.log(chalk.red(`It's not the good word!`))
     if (readlineSync.keyInYNStrict(`Do you want to continue? `)) {
       // 'y' key was pressed.
       console.log('Restart')
