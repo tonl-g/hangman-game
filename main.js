@@ -3,7 +3,7 @@ const readlineSync = require('readline-sync')
 const { readFileSync } = require('fs')
 const { randomInt } = require('crypto')
 
-// Start game
+/* // Start game
 if (readlineSync.keyInYNStrict(`Do you want play Hangman's Game? `)) {
   // 'Y' key was pressed.
   console.log('Continue...')
@@ -12,15 +12,27 @@ if (readlineSync.keyInYNStrict(`Do you want play Hangman's Game? `)) {
   // 'N' key was pressded.
   console.log('Goodbye!')
   process.exit(0)
-  }
+  } */
 
 //
 const readDic = readFileSync('./dictionnary.txt', 'utf-8')
 // console.log(readDic)
 
-const words = readDic.split('\n')
+const wordsDic = readDic.toLowerCase().split('\n')
 // console.log(words)
 
-const randWord =randomInt(0, words.length)
-// console.log(`random word: ${words[randWord]}`)
+const randWord = randomInt(0, wordsDic.length)
+console.log(wordsDic[randWord]) 
+
+let isRunning = true
+while (isRunning) {
+  const findWord = readlineSync.question('Guess a word: ')
+  if (findWord != (wordsDic[randWord])) {
+    console.log(`It's not a good word`)
+  } else { (findWord === (wordsDic[randWord])) 
+    console.log(`You find the good word ${(wordsDic[randWord])}`)
+    // exit the loop
+    isRunning = false
+  }
+}
 
