@@ -1,4 +1,4 @@
-const {startGame, loopGame, readDic, wordsDic, randWord} = require('./functions')
+const {startGame, continueGame, loopGame, readDic, wordsDic, randWord} = require('./functions')
 
 startGame()
 
