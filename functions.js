@@ -35,17 +35,10 @@ const loopGame = () => {
   let clueWord = Array((wordsDic[randWord]).length).fill('_')
   console.log(`Indice: ${clueWord.length} lettres`)
   console.log(`${clueWord.join(' ')}`)
-  let counter = 7
 
   while (isRunning) {
     const findWord = readlineSync.question(chalk.blue('Guess the word: '))
     const matchLetters = ((wordsDic[randWord]).match(findWord))
-    
-    if (isRunning = true) {
-      console.log(`Il vous reste ${counter -= 1} tentatives`)
-    } else {
-      isRunning = false
-    }
 
     if (findWord != (wordsDic[randWord])) {
       console.log(chalk.green(`Good: ${matchLetters}`))
@@ -59,6 +52,17 @@ const loopGame = () => {
       isRunning = false
     }
   }
+}
+
+// Checks
+if (!fs.existsSync('./dictionnary.txt')) {
+  console.log('Error: file does not exist')
+  process.exit(1)
+}
+
+if (!fs.statSync('./dictionnary.txt').isFile()) {
+  console.log('Error: not a file')
+  process.exit(1)
 }
 
 // Read dictionnary
