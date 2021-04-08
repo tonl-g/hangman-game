@@ -54,7 +54,7 @@ const loopGame = () => {
   }
 }
 
-/* // Checks
+// Checks
 if (!fs.existsSync('./dictionnary.txt')) {
   console.log('Error: file does not exist')
   process.exit(1)
@@ -63,28 +63,11 @@ if (!fs.existsSync('./dictionnary.txt')) {
 if (!fs.statSync('./dictionnary.txt').isFile()) {
   console.log('Error: not a file')
   process.exit(1)
-} */
+}
 
 // Read dictionnary
-const readDic = ''
-try {
-  const readDic = fs.readFileSync('./dictionnary.txt', 'utf-8')
-  // console.log(readDic)
-} catch (e) {
-  // catch toutes les exceptions
-  if (e.code === 'ENOENT') {
-    console.error(`Error: ${e.code}: file does not exist`)
-  } else if (e.code === 'EISDIR') {
-    console.error(`Error: ${e.code}: is a directory`)
-  } else if (e.code === 'EACCES') {
-    console.error(`Error: ${e.code} access denied`)
-  } else {
-    console.log(e.message)
-  }
-} finally {
-  // will always execute
-  console.log('Thank you for using main.js')
-}
+const readDic = fs.readFileSync('./dictionnary.txt', 'utf-8')
+// console.log(readDic)
 
 // Create array 
 const wordsDic = readDic.toLowerCase().split('\n')
