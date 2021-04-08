@@ -21,7 +21,7 @@ if (readlineSync.keyInYNStrict(chalk.blue(`Do you want play Hangman's Game? `)))
 const continueGame = () => {
   if (readlineSync.keyInYNStrict(`Do you want to continue? `)) {
     // 'y' key was pressed.
-    console.log('Restart')
+    console.log('Continue')
     // continuer le programme
     } else {
     // 'n' key was pressed.
